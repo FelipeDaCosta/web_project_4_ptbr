@@ -1,3 +1,4 @@
+@import url("fonts/inter.css");
 *,
 *::before,
 *::after {
@@ -8,6 +9,12 @@
   background-color: #000;
   color: white;
   font-family: "Inter";
+}
+
+.container {
+  max-width: 880px;
+  width: 95%;
+  margin: auto;
 }
 
 .profile {
