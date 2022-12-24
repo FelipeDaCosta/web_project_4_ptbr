@@ -127,13 +127,21 @@
   margin-left: auto;
 }
 
+.elements {
+  max-width: 880px;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: 17px;
+  row-gap: 21px;
+}
+
 .element {
   background-color: #fff;
   width: 282px;
   height: 361px;
   border-radius: 10px;
-  text-overflow: ellipsis;
-  overflow: hidden;
+
   display: flex;
   flex-direction: column;
 }
@@ -143,6 +151,7 @@
   width: 246px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .element__name {
@@ -150,4 +159,7 @@
   font-size: 24px;
   line-height: 29px;
   color: #000;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
