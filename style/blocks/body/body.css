@@ -1,0 +1,9 @@
+.body {
+  background-color: #000;
+  color: white;
+  font-family: "Inter";
+}
+
+.stop-scroll {
+  overflow: hidden;
+}

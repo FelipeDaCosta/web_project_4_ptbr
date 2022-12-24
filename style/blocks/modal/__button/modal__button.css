@@ -1,0 +1,15 @@
+.modal__button {
+  background: #000000;
+  border-radius: 2px;
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}
+
+.modal__button:hover {
+  cursor: pointer;
+}
