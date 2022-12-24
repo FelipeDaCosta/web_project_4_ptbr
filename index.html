@@ -12,6 +12,7 @@
       <div class="modal">
         <div class="modal__box">
           <svg
+            id="modal__close-button"
             class="modal__close-button"
             width="32"
             height="32"
@@ -26,13 +27,19 @@
           </svg>
           <div class="modal__content">
             <h2 class="modal__title">Editar perfil</h2>
-            <form action="" class="modal__form">
+            <form action="" class="modal__form" id="modal__form">
               <input
                 type="text"
                 placeholder="Jacques Cousteau"
                 class="modal__input"
+                id="modal__input-name"
               />
-              <input type="text" placeholder="Explorar" class="modal__input" />
+              <input
+                type="text"
+                placeholder="Explorar"
+                class="modal__input"
+                id="modal__input-about"
+              />
               <button type="submit" class="modal__button">Salvar</button>
             </form>
           </div>
@@ -45,8 +52,11 @@
         <section class="profile">
           <img src="img/jacques.jpg" alt="" class="profile__picture" />
           <div class="profile__info">
-            <span class="profile__name">Jacques Cousteau</span>
+            <span class="profile__name" id="profile__name"
+              >Jacques Cousteau</span
+            >
             <svg
+              id="edit-button"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -59,7 +69,7 @@
                 fill="white"
               />
             </svg>
-            <span class="profile__sub-name">Explorar</span>
+            <span class="profile__about" id="profile__about">Explorar</span>
           </div>
           <div class="profile__add-button">
             <svg
@@ -220,5 +230,6 @@
         </footer>
       </main>
     </div>
+    <script src="scripts/script.js"></script>
   </body>
 </html>

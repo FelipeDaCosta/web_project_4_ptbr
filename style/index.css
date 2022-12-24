@@ -24,8 +24,11 @@
   width: 100%;
   top: 0;
   left: 0;
+  display: none;
+}
+
+.popup__opened {
   display: flex;
-  visibility: hidden;
 }
 
 .modal__box {
@@ -109,7 +112,7 @@
   margin-right: 18px;
 }
 
-.profile__sub-name {
+.profile__about {
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
