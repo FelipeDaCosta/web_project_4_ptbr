@@ -2,15 +2,25 @@
 
 ### Visão geral
 
-* Figma
-* Imagens
+- Introdução
+- Tecnologias
+- Figma
+- Resultado Final
+
+**Introdução**
+
+Projeto final do Sprint 4 utilizando HTML, CSS e Javascript.
+
+**Tecnologias**
+
+O projeto foi feito com HTML5 e CSS. Para tornar o design responsivo foram utilizadas as ferramentas Flexbox, medidas relativas e media queries. Também foi usado Javascript para abrir e fechar o popup e alterar o nome e descrição do perfil.
 
 **Figma**
 
-* [Link para o projeto no Figma](https://www.figma.com/file/XfB6BSINvliub43JgKza1e/WEB.-Sprint-4.-Around-The-U.S.-desktop-%2B-mobile-pt)
+O projeto teve como base o seguinte projeto Figma:
 
-**Imagens**
+- [Link para o projeto no Figma](https://www.figma.com/file/XfB6BSINvliub43JgKza1e/WEB.-Sprint-4.-Around-The-U.S.-desktop-%2B-mobile-pt)
 
-A maneira como você fará isso no trabalho é exportando imagens diretamente do Figma — recomendamos fazer isso para praticar mais. Não se esqueça de otimizá-los [aqui](https://tinypng.com/), para que seu projeto carregue mais rápido.
+**Resultado Final**
 
-Divirta-se com JavaScript!
+[Link para o resultado Final](https://www.figma.com/file/XfB6BSINvliub43JgKza1e/WEB.-Sprint-4.-Around-The-U.S.-desktop-%2B-mobile-pt)
