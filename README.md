@@ -23,4 +23,4 @@ O projeto teve como base o seguinte projeto Figma:
 
 **Resultado Final**
 
-[Link para o resultado Final](https://www.figma.com/file/XfB6BSINvliub43JgKza1e/WEB.-Sprint-4.-Around-The-U.S.-desktop-%2B-mobile-pt)
+[Link para o resultado Final](https://felipedacosta.github.io/web_project_4_ptbr/)
