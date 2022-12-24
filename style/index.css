@@ -17,6 +17,11 @@
   margin: auto;
 }
 
+.header {
+  border-bottom: 1px solid #545454;
+  padding: 45px 0;
+}
+
 .modal {
   background-color: rgba(0, 0, 0, 0.5);
   position: absolute;
@@ -89,9 +94,20 @@
   padding: 10px;
 }
 
+.modal__button:hover {
+  cursor: pointer;
+}
+
 .modal__button,
 .modal__input {
   width: 100%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  margin: 40px 0;
 }
 
 .profile {
@@ -165,4 +181,17 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+.element__like-active {
+  fill: black;
+}
+
+.footer__text {
+  color: #545454;
+}
+
+.icon-hover:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
