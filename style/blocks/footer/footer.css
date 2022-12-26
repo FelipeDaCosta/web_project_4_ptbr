@@ -1,6 +1,5 @@
-.footer__text {
-  color: #545454;
-}
-
 @media screen and (max-width: 600px) {
+  .footer {
+    text-align: center;
+  }
 }
