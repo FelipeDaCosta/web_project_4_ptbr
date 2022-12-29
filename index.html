@@ -20,8 +20,8 @@
             height="32"
           />
           <div class="modal__content">
-            <h2 class="modal__title">Editar perfil</h2>
-            <form class="modal__form" id="modal__form">
+            <form class="modal__form" id="modal-form-edit-profile">
+              <h2 class="modal__title">Editar perfil</h2>
               <input
                 type="text"
                 placeholder="Jacques Cousteau"
@@ -39,6 +39,25 @@
                 minlength="3"
               />
               <button type="submit" class="modal__button">Salvar</button>
+            </form>
+            <form class="modal__form" id="modal-form-add-card">
+              <h2 class="modal__title">Novo local</h2>
+              <input
+                type="text"
+                placeholder="Título"
+                class="modal__input"
+                id="modal__input-title"
+                maxlength="20"
+                minlength="1"
+              />
+              <input
+                type="text"
+                placeholder="Link da imagem"
+                class="modal__input"
+                id="modal__input-photo"
+                minlength="5"
+              />
+              <button type="submit" class="modal__button">Criar</button>
             </form>
           </div>
         </div>
@@ -67,7 +86,7 @@
             />
             <span class="profile__about" id="profile__about">Explorar</span>
           </div>
-          <div class="profile__add-button icon-hover">
+          <div class="profile__add-button icon-hover" id="add-card-button">
             <img
               src="./img/add_button.svg"
               alt="Add Button"
@@ -77,113 +96,30 @@
           </div>
         </div>
         <div class="elements">
-          <div class="element">
-            <img
-              src="img/vale_de_yosemite.png"
-              alt="Foto do Vale de Yosemite"
-              class="element__photo"
-            />
-            <div class="element__text">
-              <span class="element__name">Vale de Yosemite</span>
+          <template id="element-template">
+            <div class="element">
               <img
-                src="./img/like.svg"
-                alt="like button"
-                class="icon-hover"
-                width="21"
-                height="19"
+                src=""
+                alt="Foto do Vale de Yosemite"
+                class="element__photo"
               />
-            </div>
-          </div>
-
-          <div class="element">
-            <img
-              src="img/lago_louise.png"
-              alt="Foto do Vale do Lago Louise"
-              class="element__photo"
-            />
-            <div class="element__text">
-              <span class="element__name">Lago Louise</span>
               <img
-                src="./img/like.svg"
-                alt="like button"
-                class="icon-hover"
-                width="21"
-                height="19"
+                src="./img/trash-bin.svg"
+                alt="Trash bin"
+                class="element__trash-bin icon-hover"
               />
+              <div class="element__text">
+                <span class="element__name"></span>
+                <img
+                  src="./img/like.svg"
+                  alt="like button"
+                  class="element__like-button icon-hover"
+                  width="21"
+                  height="19"
+                />
+              </div>
             </div>
-          </div>
-
-          <div class="element">
-            <img
-              src="img/montanhas_care.png"
-              alt="Foto de Montanhas"
-              class="element__photo"
-            />
-            <div class="element__text">
-              <span class="element__name">Montanhas Carecas</span>
-              <img
-                src="./img/like.svg"
-                alt="like button"
-                class="icon-hover"
-                width="21"
-                height="19"
-              />
-            </div>
-          </div>
-
-          <div class="element">
-            <img
-              src="img/latemar.png"
-              alt="Foto do Latemar"
-              class="element__photo"
-            />
-            <div class="element__text">
-              <span class="element__name">Latemar</span>
-              <img
-                src="./img/like.svg"
-                alt="like button"
-                class="icon-hover"
-                width="21"
-                height="19"
-              />
-            </div>
-          </div>
-
-          <div class="element">
-            <img
-              src="img/vanoise_national.png"
-              alt="Foto do Parque de Vanoise"
-              class="element__photo"
-            />
-            <div class="element__text">
-              <span class="element__name">Vanoise National park</span>
-              <img
-                src="./img/like.svg"
-                alt="like button"
-                class="icon-hover"
-                width="21"
-                height="19"
-              />
-            </div>
-          </div>
-
-          <div class="element">
-            <img
-              src="img/lago_di_braies.png"
-              alt="Foto do LAgo Di Braies"
-              class="element__photo"
-            />
-            <div class="element__text">
-              <span class="element__name">Lago di Braies</span>
-              <img
-                src="./img/like.svg"
-                alt="like button"
-                class="icon-hover"
-                width="21"
-                height="19"
-              />
-            </div>
-          </div>
+          </template>
         </div>
         <footer class="footer">
           <span class="footer__text">© 2021 Around The U.S.</span>

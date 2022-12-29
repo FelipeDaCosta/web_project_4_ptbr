@@ -33,6 +33,8 @@
 @import url("blocks/element/__name/element__name.css");
 @import url("blocks/element/__text/element__text.css");
 @import url("blocks/element/__like-active/element__like-active.css");
+@import url("blocks/element/__photo/element__photo.css");
+@import url("blocks/element/__trash-bin/element__trash-bin.css");
 
 @import url("blocks/footer/footer.css");
 @import url("blocks/footer/__text/footer__text.css");
