@@ -6,3 +6,9 @@
   column-gap: 17px;
   row-gap: 21px;
 }
+
+@media screen and (max-width: 940px) {
+  .elements {
+    justify-content: center;
+  }
+}
