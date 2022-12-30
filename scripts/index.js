@@ -56,6 +56,7 @@ function addCard(name, link) {
   const newElement = templateContent.cloneNode(true);
   newElement.querySelector(".element__name").textContent = name;
   newElement.querySelector(".element__photo").src = link;
+  newElement.querySelector(".element__photo").alt = name;
   newElement
     .querySelector(".element__photo")
     .addEventListener("click", (evt) => {
