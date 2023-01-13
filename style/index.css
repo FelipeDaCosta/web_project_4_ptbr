@@ -18,6 +18,7 @@
 @import url("blocks/modal//__input/modal__input.css");
 @import url("blocks/modal/__button/modal__button.css");
 @import url("blocks/modal/__figure/modal__figure.css");
+@import url("blocks/modal/__input-error/modal__input-error.css");
 @import url("blocks/modal/__figure-photo/modal__figure-photo.css");
 @import url("blocks/modal/__figure-caption/modal__figure-caption.css");
 

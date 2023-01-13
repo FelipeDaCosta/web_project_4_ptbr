@@ -10,3 +10,7 @@
   position: relative;
   display: none;
 }
+
+.modal__box:hover {
+  cursor: default;
+}

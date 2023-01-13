@@ -6,3 +6,7 @@
   padding: 5px;
   width: 100%;
 }
+
+.modal__input_type_error {
+  border-bottom: 1px solid red;
+}

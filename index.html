@@ -9,7 +9,7 @@
   </head>
   <body class="body">
     <div class="container">
-      <div class="modal">
+      <div class="modal" id="modal-overlay">
         <div class="modal__box" id="modal__box">
           <img
             src="./img/close_button.svg"
@@ -18,43 +18,70 @@
             class="modal__close-button icon-hover"
           />
           <div class="modal__content">
-            <form class="modal__form" id="modal-form-edit-profile">
+            <form class="modal__form" id="modal-form-edit-profile" novalidate>
               <h2 class="modal__title">Editar perfil</h2>
-              <input
-                type="text"
-                placeholder="Jacques Cousteau"
-                class="modal__input"
-                id="modal__input-name"
-                maxlength="40"
-                minlength="3"
-              />
-              <input
-                type="text"
-                placeholder="Explorar"
-                class="modal__input"
-                id="modal__input-about"
-                maxlength="40"
-                minlength="3"
-              />
+              <div>
+                <input
+                  type="text"
+                  placeholder="Jacques Cousteau"
+                  class="modal__input"
+                  id="modal__input-name"
+                  maxlength="40"
+                  minlength="2"
+                  required
+                />
+                <span
+                  id="modal__input-name-error"
+                  class="modal__input-error"
+                ></span>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Explorar"
+                  class="modal__input"
+                  id="modal__input-about"
+                  maxlength="200"
+                  minlength="2"
+                  required
+                />
+                <span
+                  id="modal__input-about-error"
+                  class="modal__input-error"
+                ></span>
+              </div>
               <button type="submit" class="modal__button">Salvar</button>
             </form>
-            <form class="modal__form" id="modal-form-add-card">
+            <form class="modal__form" id="modal-form-add-card" novalidate>
               <h2 class="modal__title">Novo local</h2>
-              <input
-                type="text"
-                placeholder="Título"
-                class="modal__input"
-                id="modal__input-title"
-                maxlength="20"
-                minlength="1"
-              />
-              <input
-                type="text"
-                placeholder="Link da imagem"
-                class="modal__input"
-                id="modal__input-photo"
-                minlength="5"
-              />
+              <div>
+                <input
+                  type="text"
+                  placeholder="Título"
+                  class="modal__input"
+                  id="modal__input-title"
+                  maxlength="30"
+                  minlength="2"
+                  required
+                />
+                <span
+                  id="modal__input-title-error"
+                  class="modal__input-error"
+                ></span>
+              </div>
+              <div>
+                <input
+                  type="url"
+                  placeholder="Link da imagem"
+                  class="modal__input"
+                  id="modal__input-photo"
+                  required
+                />
+                <span
+                  id="modal__input-photo-error"
+                  class="modal__input-error"
+                ></span>
+              </div>
               <button type="submit" class="modal__button">Criar</button>
             </form>
           </div>
@@ -134,6 +161,7 @@
         </footer>
       </main>
     </div>
+    <script src="scripts/validate.js"></script>
     <script src="scripts/index.js"></script>
   </body>
 </html>

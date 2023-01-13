@@ -17,6 +17,8 @@ const inputCardPhoto = document.querySelector("#modal__input-photo");
 const profileName = document.querySelector("#profile__name");
 const profileAbout = document.querySelector("#profile__about");
 
+const modalOverlay = document.querySelector("#modal-overlay");
+
 const modalFigurePhoto = document.querySelector("#modal__figure-photo");
 const modalFigureCaption = document.querySelector("#modal__figure-caption");
 const closeModalFigureButton = document.querySelector(
@@ -135,4 +137,22 @@ closeModalFigureButton.addEventListener("click", () => {
   modal.classList.remove("popup__opened");
 });
 
+modalOverlay.addEventListener("click", (evt) => {
+  if (evt.target === modalOverlay) {
+    body.classList.remove("stop-scroll");
+    modal.classList.remove("popup__opened");
+  }
+});
+
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    body.classList.remove("stop-scroll");
+    modal.classList.remove("popup__opened");
+  }
+});
+
 createInitialCards();
+
+// Validation
+
+enableValidation();

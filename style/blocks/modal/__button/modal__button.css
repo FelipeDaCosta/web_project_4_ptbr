@@ -13,3 +13,9 @@
 .modal__button:hover {
   cursor: pointer;
 }
+
+.modal__button:disabled {
+  background-color: #fff;
+  color: #000;
+  opacity: 0.2;
+}

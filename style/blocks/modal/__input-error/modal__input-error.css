@@ -1,0 +1,11 @@
+.modal__input-error {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #f00;
+  visibility: hidden;
+}
+
+.modal__input-error-active {
+  visibility: visible;
+}
