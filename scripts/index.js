@@ -116,6 +116,7 @@ editButton.addEventListener("click", () => {
   editProfileForm.style.display = "flex";
   inputName.value = profileName.textContent;
   inputAbout.value = profileAbout.textContent;
+  addCloseModalEventListener();
 });
 
 addCardButton.addEventListener("click", () => {
@@ -125,31 +126,44 @@ addCardButton.addEventListener("click", () => {
   modalFigure.style.display = "none";
   addCardForm.style.display = "flex";
   editProfileForm.style.display = "none";
+  addCloseModalEventListener();
 });
 
-closeModalBoxButton.addEventListener("click", () => {
+function closeModal() {
   body.classList.remove("stop-scroll");
   modal.classList.remove("popup__opened");
+  removeCloseModalEventListener();
+}
+
+closeModalBoxButton.addEventListener("click", () => {
+  closeModal();
 });
 
 closeModalFigureButton.addEventListener("click", () => {
-  body.classList.remove("stop-scroll");
-  modal.classList.remove("popup__opened");
+  closeModal();
 });
 
-modalOverlay.addEventListener("click", (evt) => {
-  if (evt.target === modalOverlay) {
-    body.classList.remove("stop-scroll");
-    modal.classList.remove("popup__opened");
-  }
-});
-
-document.addEventListener("keydown", (evt) => {
+function closeModalEsc(evt) {
   if (evt.key === "Escape") {
-    body.classList.remove("stop-scroll");
-    modal.classList.remove("popup__opened");
+    closeModal();
   }
-});
+}
+
+function closeModalOverlay(evt) {
+  if (evt.target === modalOverlay) {
+    closeModal();
+  }
+}
+
+function addCloseModalEventListener() {
+  modalOverlay.addEventListener("click", closeModalOverlay);
+  document.addEventListener("keydown", closeModalEsc);
+}
+
+function removeCloseModalEventListener() {
+  modalOverlay.removeEventListener("click", closeModalOverlay);
+  document.removeEventListener("keydown", closeModalEsc);
+}
 
 createInitialCards();
 
