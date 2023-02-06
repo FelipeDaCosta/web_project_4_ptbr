@@ -1,5 +1,12 @@
-import Card from "./card.js";
 import FormValidator from "./formValidator.js";
+
+import {
+  addCard,
+  addCloseModalEventListener,
+  closeModal,
+  handleAddCardSubmit,
+  handleProfileFormSubmit,
+} from "./utils.js";
 
 const body = document.querySelector(".body");
 const modal = document.querySelector(".modal");
@@ -14,8 +21,6 @@ const editProfileForm = document.querySelector("#modal-form-edit-profile");
 const addCardForm = document.querySelector("#modal-form-add-card");
 const inputName = document.querySelector("#modal__input-name");
 const inputAbout = document.querySelector("#modal__input-about");
-const inputCardTitle = document.querySelector("#modal__input-title");
-const inputCardPhoto = document.querySelector("#modal__input-photo");
 
 const profileName = document.querySelector("#profile__name");
 const profileAbout = document.querySelector("#profile__about");
@@ -25,8 +30,6 @@ const modalOverlay = document.querySelector("#modal-overlay");
 const closeModalFigureButton = document.querySelector(
   "#modal__close-figure-button"
 );
-
-const elementsList = document.querySelector(".elements");
 
 const initialCards = [
   {
@@ -55,31 +58,10 @@ const initialCards = [
   },
 ];
 
-function addCard(name, link) {
-  const newElement = new Card(name, link);
-  elementsList.prepend(newElement.getCardElement());
-}
-
 function createInitialCards() {
   initialCards.forEach((card) => {
     addCard(card.name, card.link);
   });
-}
-
-function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
-  profileName.textContent = inputName.value;
-  profileAbout.textContent = inputAbout.value;
-  body.classList.remove("stop-scroll");
-  modal.classList.remove("popup__opened");
-}
-
-function handleAddCardSubmit(evt) {
-  evt.preventDefault();
-
-  addCard(inputCardTitle.value, inputCardPhoto.value);
-  body.classList.remove("stop-scroll");
-  modal.classList.remove("popup__opened");
 }
 
 editProfileForm.addEventListener("submit", handleProfileFormSubmit);
@@ -107,12 +89,6 @@ addCardButton.addEventListener("click", () => {
   addCloseModalEventListener();
 });
 
-function closeModal() {
-  body.classList.remove("stop-scroll");
-  modal.classList.remove("popup__opened");
-  removeCloseModalEventListener();
-}
-
 closeModalBoxButton.addEventListener("click", () => {
   closeModal();
 });
@@ -120,28 +96,6 @@ closeModalBoxButton.addEventListener("click", () => {
 closeModalFigureButton.addEventListener("click", () => {
   closeModal();
 });
-
-function closeModalEsc(evt) {
-  if (evt.key === "Escape") {
-    closeModal();
-  }
-}
-
-function closeModalOverlay(evt) {
-  if (evt.target === modalOverlay) {
-    closeModal();
-  }
-}
-
-function addCloseModalEventListener() {
-  modalOverlay.addEventListener("click", closeModalOverlay);
-  document.addEventListener("keydown", closeModalEsc);
-}
-
-function removeCloseModalEventListener() {
-  modalOverlay.removeEventListener("click", closeModalOverlay);
-  document.removeEventListener("keydown", closeModalEsc);
-}
 
 createInitialCards();
 
