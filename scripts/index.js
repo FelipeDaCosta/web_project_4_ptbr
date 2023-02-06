@@ -1,3 +1,6 @@
+import Card from "./card.js";
+import FormValidator from "./formValidator.js";
+
 const body = document.querySelector(".body");
 const modal = document.querySelector(".modal");
 const editButton = document.querySelector("#edit-button");
@@ -24,6 +27,8 @@ const modalFigureCaption = document.querySelector("#modal__figure-caption");
 const closeModalFigureButton = document.querySelector(
   "#modal__close-figure-button"
 );
+
+const elementsList = document.querySelector(".elements");
 
 const initialCards = [
   {
@@ -53,34 +58,8 @@ const initialCards = [
 ];
 
 function addCard(name, link) {
-  const elementsList = document.querySelector(".elements");
-  const templateContent = document.querySelector("#element-template").content;
-  const newElement = templateContent.cloneNode(true);
-  newElement.querySelector(".element__name").textContent = name;
-  newElement.querySelector(".element__photo").src = link;
-  newElement.querySelector(".element__photo").alt = name;
-  newElement
-    .querySelector(".element__photo")
-    .addEventListener("click", (evt) => {
-      modal.classList.add("popup__opened");
-      body.classList.add("stop-scroll");
-      modalBox.style.display = "none";
-      modalFigure.style.display = "block";
-      modalFigurePhoto.src = link;
-      modalFigureCaption.textContent = name;
-    });
-  newElement
-    .querySelector(".element__like-button")
-    .addEventListener("click", (evt) => {
-      evt.target.classList.toggle("element__like-active");
-    });
-  newElement
-    .querySelector(".element__trash-bin")
-    .addEventListener("click", (evt) => {
-      evt.target.parentElement.remove();
-    });
-
-  elementsList.prepend(newElement);
+  const newElement = new Card(name, link);
+  elementsList.prepend(newElement.getCardElement());
 }
 
 function createInitialCards() {
@@ -99,6 +78,7 @@ function handleProfileFormSubmit(evt) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+
   addCard(inputCardTitle.value, inputCardPhoto.value);
   body.classList.remove("stop-scroll");
   modal.classList.remove("popup__opened");
@@ -170,3 +150,8 @@ createInitialCards();
 // Validation
 
 enableValidation();
+// const formList = Array.from(document.querySelectorAll(".modal__form"));
+// formList.forEach((formElement) => {
+//   const newValidator = new FormValidator(formElement);
+//   newValidator.enableValidation();
+// });
