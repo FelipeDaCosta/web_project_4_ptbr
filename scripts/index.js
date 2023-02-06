@@ -22,8 +22,6 @@ const profileAbout = document.querySelector("#profile__about");
 
 const modalOverlay = document.querySelector("#modal-overlay");
 
-const modalFigurePhoto = document.querySelector("#modal__figure-photo");
-const modalFigureCaption = document.querySelector("#modal__figure-caption");
 const closeModalFigureButton = document.querySelector(
   "#modal__close-figure-button"
 );
@@ -148,10 +146,8 @@ function removeCloseModalEventListener() {
 createInitialCards();
 
 // Validation
-
-enableValidation();
-// const formList = Array.from(document.querySelectorAll(".modal__form"));
-// formList.forEach((formElement) => {
-//   const newValidator = new FormValidator(formElement);
-//   newValidator.enableValidation();
-// });
+const formList = Array.from(document.querySelectorAll(".modal__form"));
+formList.forEach((formElement) => {
+  const newValidator = new FormValidator(formElement);
+  newValidator.enableValidation();
+});
