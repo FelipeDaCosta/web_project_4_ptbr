@@ -6,6 +6,7 @@ import {
   closeModal,
   handleAddCardSubmit,
   handleProfileFormSubmit,
+  initialCards,
 } from "./utils.js";
 
 const body = document.querySelector(".body");
@@ -30,33 +31,6 @@ const modalOverlay = document.querySelector("#modal-overlay");
 const closeModalFigureButton = document.querySelector(
   "#modal__close-figure-button"
 );
-
-const initialCards = [
-  {
-    name: "Vale de Yosemite",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-  },
-  {
-    name: "Montanhas Carecas",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-  },
-  {
-    name: "Parque Nacional da Vanoise ",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
-  },
-];
 
 function createInitialCards() {
   initialCards.forEach((card) => {
@@ -102,6 +76,9 @@ createInitialCards();
 // Validation
 const formList = Array.from(document.querySelectorAll(".modal__form"));
 formList.forEach((formElement) => {
-  const newValidator = new FormValidator(formElement);
+  const newValidator = new FormValidator(formElement, {
+    input: ".modal__input",
+    buttons: ".modal__button",
+  });
   newValidator.enableValidation();
 });

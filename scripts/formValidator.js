@@ -1,6 +1,7 @@
 export default class FormValidator {
-  constructor(form) {
+  constructor(form, classSelectors) {
     this._form = form;
+    this._classSelectors = classSelectors;
   }
 
   _showInputError(formElement, inputElement, errorMessage) {
@@ -44,8 +45,12 @@ export default class FormValidator {
   }
 
   _setEventListeners(formElement) {
-    const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
-    const buttonElement = formElement.querySelector(".modal__button");
+    const inputList = Array.from(
+      formElement.querySelectorAll(this._classSelectors.input)
+    );
+    const buttonElement = formElement.querySelector(
+      this._classSelectors.buttons
+    );
 
     this._toggleButtonState(inputList, buttonElement);
 
