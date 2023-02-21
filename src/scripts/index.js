@@ -1,3 +1,5 @@
+import "../style/index.css";
+
 import FormValidator from "./formValidator.js";
 import PopupWithForm from "./popupWithForm.js";
 import Section from "./section.js";
