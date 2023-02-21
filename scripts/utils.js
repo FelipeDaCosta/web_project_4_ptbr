@@ -1,4 +1,5 @@
 import Card from "./card.js";
+import PopupWithImage from "./popupWithImage.js";
 
 const modal = document.querySelector(".modal");
 const body = document.querySelector(".body");
@@ -19,18 +20,15 @@ const modalOverlay = document.querySelector("#modal-overlay");
 
 const elementsList = document.querySelector(".elements");
 
+const popupWithImage = new PopupWithImage(".modal");
+
 export function addCard(name, link) {
   const newElement = new Card(name, link);
   elementsList.prepend(newElement.getCardElement());
 }
 
 export function openFigureModal(link, name) {
-  modal.classList.add("popup__opened");
-  body.classList.add("stop-scroll");
-  modalBox.style.display = "none";
-  modalFigure.style.display = "block";
-  modalFigurePhoto.src = link;
-  modalFigureCaption.textContent = name;
+  popupWithImage.open({ name: name, link: link });
 }
 
 export function handleProfileFormSubmit(evt) {

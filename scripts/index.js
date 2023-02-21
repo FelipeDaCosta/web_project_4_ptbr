@@ -1,4 +1,6 @@
 import FormValidator from "./formValidator.js";
+import PopupWithForm from "./popupWithForm.js";
+import Section from "./section.js";
 
 import {
   addCard,
@@ -18,8 +20,6 @@ const modalBox = document.querySelector("#modal__box");
 const modalFigure = document.querySelector("#modal__figure");
 
 const closeModalBoxButton = document.querySelector("#modal__close-box-button");
-const editProfileForm = document.querySelector("#modal-form-edit-profile");
-const addCardForm = document.querySelector("#modal-form-add-card");
 const inputName = document.querySelector("#modal__input-name");
 const inputAbout = document.querySelector("#modal__input-about");
 
@@ -32,22 +32,36 @@ const closeModalFigureButton = document.querySelector(
   "#modal__close-figure-button"
 );
 
-function createInitialCards() {
-  initialCards.forEach((card) => {
-    addCard(card.name, card.link);
-  });
-}
+const section = new Section({
+  items: initialCards,
+  renderer: (card) => addCard(card.name, card.link),
+});
 
-editProfileForm.addEventListener("submit", handleProfileFormSubmit);
-addCardForm.addEventListener("submit", handleAddCardSubmit);
+section.renderer();
+
+const editProfileForm = new PopupWithForm(
+  ".modal",
+  handleProfileFormSubmit,
+  "#modal-form-edit-profile"
+);
+
+editProfileForm.setEventListeners();
+
+const addCardForm = new PopupWithForm(
+  ".modal",
+  handleAddCardSubmit,
+  "#modal-form-add-card"
+);
+
+addCardForm.setEventListeners();
 
 editButton.addEventListener("click", () => {
   modal.classList.add("popup__opened");
   body.classList.add("stop-scroll");
   modalBox.style.display = "block";
   modalFigure.style.display = "none";
-  addCardForm.style.display = "none";
-  editProfileForm.style.display = "flex";
+  addCardForm.hide();
+  editProfileForm.show();
   inputName.value = profileName.textContent;
   inputAbout.value = profileAbout.textContent;
   addCloseModalEventListener();
@@ -58,20 +72,10 @@ addCardButton.addEventListener("click", () => {
   body.classList.add("stop-scroll");
   modalBox.style.display = "block";
   modalFigure.style.display = "none";
-  addCardForm.style.display = "flex";
-  editProfileForm.style.display = "none";
+  addCardForm.show();
+  editProfileForm.hide();
   addCloseModalEventListener();
 });
-
-closeModalBoxButton.addEventListener("click", () => {
-  closeModal();
-});
-
-closeModalFigureButton.addEventListener("click", () => {
-  closeModal();
-});
-
-createInitialCards();
 
 // Validation
 const formList = Array.from(document.querySelectorAll(".modal__form"));
