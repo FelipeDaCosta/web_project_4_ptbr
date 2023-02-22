@@ -7,7 +7,7 @@ import Section from "./components/section.js";
 import {
   addCard,
   addCloseModalEventListener,
-  closeModal,
+  getUserInfo,
   handleAddCardSubmit,
   handleProfileFormSubmit,
   initialCards,
@@ -23,9 +23,6 @@ const modalFigure = document.querySelector("#modal__figure");
 
 const inputName = document.querySelector("#modal__input-name");
 const inputAbout = document.querySelector("#modal__input-about");
-
-const profileName = document.querySelector("#profile__name");
-const profileAbout = document.querySelector("#profile__about");
 
 const section = new Section({
   items: initialCards,
@@ -57,8 +54,9 @@ editButton.addEventListener("click", () => {
   modalFigure.style.display = "none";
   addCardForm.hide();
   editProfileForm.show();
-  inputName.value = profileName.textContent;
-  inputAbout.value = profileAbout.textContent;
+  const { name, about } = getUserInfo();
+  inputName.value = name;
+  inputAbout.value = about;
   addCloseModalEventListener();
 });
 

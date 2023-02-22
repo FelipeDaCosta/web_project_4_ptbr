@@ -7,8 +7,6 @@ const body = document.querySelector(".body");
 
 const inputCardTitle = document.querySelector("#modal__input-title");
 const inputCardPhoto = document.querySelector("#modal__input-photo");
-const profileName = document.querySelector("#profile__name");
-const profileAbout = document.querySelector("#profile__about");
 
 const inputName = document.querySelector("#modal__input-name");
 const inputAbout = document.querySelector("#modal__input-about");
@@ -32,10 +30,13 @@ export function OpenFigureModal(link, name) {
 
 export function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = inputName.value;
-  profileAbout.textContent = inputAbout.value;
+  userInfo.setUserInfo({ name: inputName.value, about: inputAbout.value });
   body.classList.remove("stop-scroll");
   modal.classList.remove("popup__opened");
+}
+
+export function getUserInfo() {
+  return userInfo.getUserInfo();
 }
 
 export function handleAddCardSubmit(evt) {
