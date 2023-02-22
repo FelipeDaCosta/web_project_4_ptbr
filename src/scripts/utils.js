@@ -1,12 +1,9 @@
-import Card from "./card.js";
-import PopupWithImage from "./popupWithImage.js";
+import Card from "./components/card.js";
+import PopupWithImage from "./components/popupWithImage.js";
+import UserInfo from "./components/UserInfo.js";
 
 const modal = document.querySelector(".modal");
 const body = document.querySelector(".body");
-const modalFigurePhoto = document.querySelector("#modal__figure-photo");
-const modalFigureCaption = document.querySelector("#modal__figure-caption");
-const modalBox = document.querySelector("#modal__box");
-const modalFigure = document.querySelector("#modal__figure");
 
 const inputCardTitle = document.querySelector("#modal__input-title");
 const inputCardPhoto = document.querySelector("#modal__input-photo");
@@ -22,12 +19,14 @@ const elementsList = document.querySelector(".elements");
 
 const popupWithImage = new PopupWithImage(".modal");
 
+const userInfo = new UserInfo("Jacques Cousteau", "Explorar");
+
 export function addCard(name, link) {
   const newElement = new Card(name, link);
   elementsList.prepend(newElement.getCardElement());
 }
 
-export function openFigureModal(link, name) {
+export function OpenFigureModal(link, name) {
   popupWithImage.open({ name: name, link: link });
 }
 

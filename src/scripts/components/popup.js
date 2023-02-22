@@ -16,17 +16,17 @@ export default class Popup {
     this._modal.classList.remove("popup__opened");
   }
 
-  _handleEscClose() {
+  _handleEscClose(evt) {
     if (evt.key === "Escape") {
       this.close();
     }
   }
 
   setEventListeners() {
-    document.addEventListener("keydown", this._handleEscClose);
+    document.addEventListener("keydown", (evt) => this._handleEscClose(evt));
     this._modalOverlay.addEventListener("click", (evt) => {
-      if (evt.target === modalOverlay) {
-        closeModal();
+      if (evt.target === this._modalOverlay) {
+        this.close();
       }
     });
     const closeModalBoxButton = document.querySelector(

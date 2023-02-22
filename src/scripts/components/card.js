@@ -1,4 +1,4 @@
-import { openFigureModal } from "./utils.js";
+import { OpenFigureModal } from "../utils.js";
 
 const cardTemplateId = "#element-template";
 
@@ -15,7 +15,7 @@ export default class Card {
 
     this._htmlElement
       .querySelector(".element__photo")
-      .addEventListener("click", () => openFigureModal(this._link, this._name));
+      .addEventListener("click", () => OpenFigureModal(this._link, this._name));
 
     this._htmlElement
       .querySelector(".element__like-button")

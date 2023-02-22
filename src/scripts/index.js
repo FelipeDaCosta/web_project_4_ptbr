@@ -1,8 +1,8 @@
 import "../style/index.css";
 
-import FormValidator from "./formValidator.js";
-import PopupWithForm from "./popupWithForm.js";
-import Section from "./section.js";
+import FormValidator from "./components/formValidator.js";
+import PopupWithForm from "./components/popupWithForm.js";
+import Section from "./components/section.js";
 
 import {
   addCard,
@@ -21,18 +21,11 @@ const addCardButton = document.querySelector("#add-card-button");
 const modalBox = document.querySelector("#modal__box");
 const modalFigure = document.querySelector("#modal__figure");
 
-const closeModalBoxButton = document.querySelector("#modal__close-box-button");
 const inputName = document.querySelector("#modal__input-name");
 const inputAbout = document.querySelector("#modal__input-about");
 
 const profileName = document.querySelector("#profile__name");
 const profileAbout = document.querySelector("#profile__about");
-
-const modalOverlay = document.querySelector("#modal-overlay");
-
-const closeModalFigureButton = document.querySelector(
-  "#modal__close-figure-button"
-);
 
 const section = new Section({
   items: initialCards,
