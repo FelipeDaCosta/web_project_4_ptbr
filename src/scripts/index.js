@@ -1,8 +1,8 @@
 import "../style/index.css";
 
-import FormValidator from "./components/formValidator.js";
-import PopupWithForm from "./components/popupWithForm.js";
-import Section from "./components/section.js";
+import FormValidator from "./components/FormValidator.js";
+import PopupWithForm from "./components/PopupWithForm.js";
+import Section from "./components/Section.js";
 
 import {
   addCard,
@@ -11,7 +11,7 @@ import {
   handleAddCardSubmit,
   handleProfileFormSubmit,
   initialCards,
-} from "./utils.js";
+} from "./Utils.js";
 
 const body = document.querySelector(".body");
 const modal = document.querySelector(".modal");

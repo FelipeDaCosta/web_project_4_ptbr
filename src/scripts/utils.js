@@ -1,5 +1,5 @@
-import Card from "./components/card.js";
-import PopupWithImage from "./components/popupWithImage.js";
+import Card from "./components/Card.js";
+import PopupWithImage from "./components/PopupWithImage.js";
 import UserInfo from "./components/UserInfo.js";
 
 const modal = document.querySelector(".modal");
