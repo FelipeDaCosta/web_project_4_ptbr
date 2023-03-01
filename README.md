@@ -23,4 +23,4 @@ O projeto teve como base o seguinte projeto Figma:
 
 **Resultado Final**
 
-[Link para o resultado Final](https://felipedacosta.github.io/web_project_4_ptbr/)
+[Link para o resultado Final](https://felipedcm.github.io/web_project_4_ptbr/)
