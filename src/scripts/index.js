@@ -11,7 +11,7 @@ import {
   handleAddCardSubmit,
   handleProfileFormSubmit,
   initialCards,
-} from "./Utils.js";
+} from "./utils.js";
 
 const body = document.querySelector(".body");
 const modal = document.querySelector(".modal");
@@ -71,7 +71,7 @@ addCardButton.addEventListener("click", () => {
 });
 
 // Validation
-const formList = Array.from(document.querySelectorAll(".modal__form"));
+const formList = document.querySelectorAll(".modal__form");
 formList.forEach((formElement) => {
   const newValidator = new FormValidator(formElement, {
     input: ".modal__input",

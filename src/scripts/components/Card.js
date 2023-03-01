@@ -1,4 +1,4 @@
-import { OpenFigureModal } from "../Utils.js";
+import { OpenFigureModal } from "../utils.js";
 
 const cardTemplateId = "#element-template";
 
