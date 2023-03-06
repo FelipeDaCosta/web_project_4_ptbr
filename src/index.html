@@ -100,17 +100,28 @@
           />
           <figcaption id="modal__figure-caption"></figcaption>
         </figure>
+        <div class="modal__delete-confirm">
+          <span>Tem certeza?</span>
+          <button>Sim</button>
+        </div>
       </div>
       <header class="header">
         <img src="<%=require('./img/logo.svg')%>" alt="Around the US logo" />
       </header>
       <main class="main">
         <div class="profile">
-          <img
-            src="<%=require('./img/jacques.jpg')%>"
-            alt="Foto de perfil"
-            class="profile__picture"
-          />
+          <div class="profile__picture-wrapper">
+            <img
+              src="<%=require('./img/jacques.jpg')%>"
+              alt="Foto de perfil"
+              class="profile__picture"
+            />
+            <img
+              src="<%=require('./img/edit-pen.png')%>"
+              alt="Caneta editar"
+              class="profile__picture-edit"
+            />
+          </div>
           <div class="profile__info">
             <span class="profile__name" id="profile__name"
               >Jacques Cousteau</span
@@ -146,11 +157,14 @@
               />
               <div class="element__text">
                 <span class="element__name"></span>
-                <img
-                  src="<%=require('./img/like.svg')%>"
-                  alt="like button"
-                  class="element__like-button icon-hover"
-                />
+                <div class="element__like-area">
+                  <img
+                    src="<%=require('./img/like.svg')%>"
+                    alt="like button"
+                    class="element__like-button icon-hover"
+                  />
+                  <span class="element__like-counter">2</span>
+                </div>
               </div>
             </div>
           </template>

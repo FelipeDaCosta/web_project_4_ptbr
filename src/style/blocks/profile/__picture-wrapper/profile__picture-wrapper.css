@@ -1,0 +1,12 @@
+.profile__picture-wrapper {
+  position: relative;
+}
+
+.profile__picture-wrapper:hover {
+  cursor: pointer;
+}
+
+.profile__picture-wrapper:hover .profile__picture {
+  opacity: 0.4;
+  z-index: 1;
+}
