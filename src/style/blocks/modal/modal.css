@@ -10,6 +10,7 @@
   opacity: 0;
   transition: visibility 0.4s, opacity 0.4s linear;
   display: flex;
+  z-index: 10;
 }
 
 .modal:hover {

@@ -9,6 +9,7 @@
   padding: 25px 22px;
   position: relative;
   display: none;
+  z-index: 10;
 }
 
 .modal__box:hover {

@@ -83,6 +83,16 @@
               </div>
               <button type="submit" class="modal__button">Criar</button>
             </form>
+            <form class="modal__form" id="modal__delete-confirm">
+              <h2 class="modal__title">Tem certeza?</h2>
+              <input type="hidden" class="modal__input" id="card-id" />
+              <button type="submit" class="modal__button">Sim</button>
+            </form>
+            <form class="modal__form" id="modal__change-pfp">
+              <h2 class="modal__title">Alterar a foto de perfil</h2>
+              <input type="url" class="modal__input" id="user-pfp-input" />
+              <button type="submit" class="modal__button">Salvar</button>
+            </form>
           </div>
         </div>
         <figure class="modal__figure" id="modal__figure">
@@ -100,21 +110,18 @@
           />
           <figcaption id="modal__figure-caption"></figcaption>
         </figure>
-        <div class="modal__delete-confirm">
-          <span>Tem certeza?</span>
-          <button>Sim</button>
-        </div>
       </div>
       <header class="header">
         <img src="<%=require('./img/logo.svg')%>" alt="Around the US logo" />
       </header>
       <main class="main">
         <div class="profile">
-          <div class="profile__picture-wrapper">
+          <div class="profile__picture-wrapper" id="profile__picture-wrapper">
             <img
               src="<%=require('./img/jacques.jpg')%>"
               alt="Foto de perfil"
               class="profile__picture"
+              id="user-profile-picture"
             />
             <img
               src="<%=require('./img/edit-pen.png')%>"
@@ -163,7 +170,7 @@
                     alt="like button"
                     class="element__like-button icon-hover"
                   />
-                  <span class="element__like-counter">2</span>
+                  <span class="element__like-counter"></span>
                 </div>
               </div>
             </div>

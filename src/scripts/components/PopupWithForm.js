@@ -18,6 +18,10 @@ export default class PopupWithForm extends Popup {
     this._formElement.reset();
   }
 
+  setValue(inpId, value) {
+    this._formElement.querySelector(inpId).value = value;
+  }
+
   show() {
     this._formElement.style.display = "flex";
   }
