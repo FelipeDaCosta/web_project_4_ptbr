@@ -11,13 +11,13 @@ import {
   addCard,
   addCloseModalEventListener,
   getUserInfo,
-  handleAddCardSubmit,
   handleProfileFormSubmit,
   initialCards,
   setUserInfo,
   getInitialCards,
   handlePfpChange,
   getCurrentUserId,
+  deleteCard,
 } from "./utils.js";
 
 const body = document.querySelector(".body");
@@ -32,15 +32,8 @@ const modalFigure = document.querySelector("#modal__figure");
 const inputName = document.querySelector("#modal__input-name");
 const inputAbout = document.querySelector("#modal__input-about");
 
-getInitialCards().then((initialCards) => {
-  const section = new Section({
-    items: initialCards,
-    renderer: (card) =>
-      addCard(card.name, card.link, openDeleteModal, card._id, card.likes),
-  });
-
-  section.renderer();
-});
+const inputCardTitle = document.querySelector("#modal__input-title");
+const inputCardPhoto = document.querySelector("#modal__input-photo");
 
 const editProfileForm = new PopupWithForm(
   ".modal",
@@ -48,7 +41,29 @@ const editProfileForm = new PopupWithForm(
   "#modal-form-edit-profile"
 );
 
+let cardTobeDeleted = undefined;
+
 editProfileForm.setEventListeners();
+
+function handleAddCardSubmit(evt) {
+  evt.preventDefault();
+  API.addCard(inputCardTitle.value, inputCardPhoto.value)
+    .then((card) => {
+      addCard(
+        inputCardTitle.value,
+        inputCardPhoto.value,
+        openDeleteModal,
+        card._id,
+        card.likes,
+        card.owner?._id
+      );
+    })
+    .catch((err) => console.log(err))
+    .finally(() => {
+      body.classList.remove("stop-scroll");
+      modal.classList.remove("popup__opened");
+    });
+}
 
 const addCardForm = new PopupWithForm(
   ".modal",
@@ -60,8 +75,10 @@ addCardForm.setEventListeners();
 
 function handleDeleteCard(evt) {
   evt.preventDefault();
-  const selectedCard = document.querySelector("#card-id").value;
+  deleteCard(cardTobeDeleted.id);
+  const selectedCard = cardTobeDeleted.element;
   selectedCard.parentElement.remove();
+  cardTobeDeleted = undefined;
   body.classList.remove("stop-scroll");
   modal.classList.remove("popup__opened");
   deleteConfirmForm.hide();
@@ -110,7 +127,7 @@ addCardButton.addEventListener("click", () => {
   addCloseModalEventListener();
 });
 
-function openDeleteModal(card) {
+function openDeleteModal(card, cardId) {
   modal.classList.add("popup__opened");
   body.classList.add("stop-scroll");
   modalBox.style.display = "block";
@@ -119,8 +136,7 @@ function openDeleteModal(card) {
   editProfileForm.hide();
   changePfpForm.hide();
   deleteConfirmForm.show();
-  const cardInput = document.querySelector("#card-id");
-  cardInput.value = card;
+  cardTobeDeleted = { element: card, id: cardId };
   addCloseModalEventListener();
 }
 
@@ -149,6 +165,20 @@ formList.forEach((formElement) => {
 API.getUserInfo().then((data) => {
   const { name, about, avatar, _id } = data;
   setUserInfo(name, about, _id, avatar);
-});
+  getInitialCards().then((initialCards) => {
+    const section = new Section({
+      items: initialCards,
+      renderer: (card) =>
+        addCard(
+          card.name,
+          card.link,
+          openDeleteModal,
+          card._id,
+          card.likes,
+          card.owner?._id
+        ),
+    });
 
-console.log(getCurrentUserId());
+    section.renderer();
+  });
+});

@@ -47,6 +47,12 @@ export default class Api {
     );
   }
 
+  unlikeCard(cardId) {
+    return this._makeRequest("/cards/likes/" + cardId, "DELETE").then(
+      (data) => data
+    );
+  }
+
   getCards() {
     return this._makeRequest("/cards").then((data) => data);
   }
@@ -57,5 +63,9 @@ export default class Api {
       "POST",
       JSON.stringify({ name, link })
     ).then((data) => data);
+  }
+
+  deleteCard(cardId) {
+    return this._makeRequest("/cards/" + cardId, "DELETE").then((data) => data);
   }
 }

@@ -12,9 +12,6 @@ const userPfp = document.querySelector("#user-profile-picture");
 const modalBox = document.querySelector("#modal__box");
 const modalFigure = document.querySelector("#modal__figure");
 
-const inputCardTitle = document.querySelector("#modal__input-title");
-const inputCardPhoto = document.querySelector("#modal__input-photo");
-
 const inputName = document.querySelector("#modal__input-name");
 const inputAbout = document.querySelector("#modal__input-about");
 
@@ -34,8 +31,8 @@ export const API = new Api({
   },
 });
 
-export function addCard(name, link, deleteFn, cardId, likesArr) {
-  const newElement = new Card(name, link, deleteFn, cardId, likesArr);
+export function addCard(name, link, deleteFn, cardId, likesArr, ownerId) {
+  const newElement = new Card(name, link, deleteFn, cardId, likesArr, ownerId);
   elementsList.prepend(newElement.getCardElement());
 }
 
@@ -61,15 +58,6 @@ export function setUserInfo(name, about, id = undefined, pfp = "") {
     const userPfp = document.querySelector("#user-profile-picture");
     userPfp.src = pfp;
   }
-}
-
-export function handleAddCardSubmit(evt) {
-  evt.preventDefault();
-
-  addCard(inputCardTitle.value, inputCardPhoto.value);
-  API.addCard(inputCardTitle.value, inputCardPhoto.value);
-  body.classList.remove("stop-scroll");
-  modal.classList.remove("popup__opened");
 }
 
 export function handlePfpChange(evt) {
@@ -118,6 +106,14 @@ export function likeCard(cardId) {
   return API.likeCard(cardId);
 }
 
+export function unlikeCard(cardId) {
+  return API.unlikeCard(cardId);
+}
+
 export function getCurrentUserId() {
   return userInfo.getId();
+}
+
+export function deleteCard(id) {
+  return API.deleteCard(id);
 }

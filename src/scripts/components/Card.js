@@ -1,18 +1,20 @@
 import {
   openFigureModal,
-  openDeleteModal,
   likeCard,
   getCurrentUserId,
+  unlikeCard,
 } from "../utils.js";
 
 const cardTemplateId = "#element-template";
 
 export default class Card {
-  constructor(name, link, deleteFn, cardId, likesArr = []) {
+  constructor(name, link, deleteFn, cardId, likesArr = [], ownerId) {
     this._name = name;
     this._link = link;
     this._htmlElement = null;
     this._cardId = cardId;
+    this._ownerId = ownerId;
+    console.log(this._ownerId);
 
     this._deleteFn = deleteFn;
     this._likesArr = likesArr;
@@ -30,16 +32,34 @@ export default class Card {
       .querySelector(".element__photo")
       .addEventListener("click", () => openFigureModal(this._link, this._name));
 
+    const likeCounter = this._htmlElement.querySelector(
+      ".element__like-counter"
+    );
     this._htmlElement
       .querySelector(".element__like-button")
       .addEventListener("click", (evt) => {
-        evt.target.classList.toggle("element__like-active");
-        likeCard(this._cardId);
+        if (this._currentUserLiked) {
+          unlikeCard(this._cardId);
+          evt.target.classList.remove("element__like-active");
+          this._likes -= 1;
+        } else {
+          likeCard(this._cardId);
+          evt.target.classList.add("element__like-active");
+          this._likes += 1;
+        }
+        if (this._likes > 0) {
+          likeCounter.textContent = this._likes;
+        } else {
+          this._likes = 0;
+          likeCounter.textContent = "";
+        }
       });
 
     this._htmlElement
       .querySelector(".element__trash-bin")
-      .addEventListener("click", (evt) => this._deleteFn(evt.target));
+      .addEventListener("click", (evt) =>
+        this._deleteFn(evt.target, this._cardId)
+      );
   }
 
   _createTemplate() {
@@ -58,23 +78,13 @@ export default class Card {
       }
     }
 
+    if (this._ownerId !== getCurrentUserId()) {
+      newElement.querySelector(".element__trash-bin").remove();
+    }
+
     this._htmlElement = newElement;
 
     this._addCardEvents();
-  }
-
-  like() {
-    this._likes += 1;
-    newElement.querySelector(".element__like-counter").textContent =
-      this._likes;
-  }
-
-  unlike() {
-    this._likes -= 1;
-    if (this._likes) {
-      newElement.querySelector(".element__like-counter").textContent =
-        this._likes;
-    }
   }
 
   getCardElement() {
