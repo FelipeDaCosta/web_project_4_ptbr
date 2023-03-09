@@ -47,6 +47,8 @@ editProfileForm.setEventListeners();
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+  const button = document.querySelector("#button-form-add-card");
+  button.textContent = "Salvando...";
   API.addCard(inputCardTitle.value, inputCardPhoto.value)
     .then((card) => {
       addCard(
@@ -60,6 +62,7 @@ function handleAddCardSubmit(evt) {
     })
     .catch((err) => console.log(err))
     .finally(() => {
+      button.textContent = "Criar";
       body.classList.remove("stop-scroll");
       modal.classList.remove("popup__opened");
     });

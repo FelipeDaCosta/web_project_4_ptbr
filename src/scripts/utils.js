@@ -43,9 +43,15 @@ export function openFigureModal(link, name) {
 export function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   userInfo.setUserInfo({ name: inputName.value, about: inputAbout.value });
-  API.setUserInfo(inputName.value, inputAbout.value);
-  body.classList.remove("stop-scroll");
-  modal.classList.remove("popup__opened");
+  const button = document.querySelector("#button-form-edit-profile");
+  button.textContent = "Salvando...";
+  API.setUserInfo(inputName.value, inputAbout.value)
+    .then((data) => {})
+    .finally(() => {
+      button.textContent = "Salvar";
+      body.classList.remove("stop-scroll");
+      modal.classList.remove("popup__opened");
+    });
 }
 
 export function getUserInfo() {
@@ -65,9 +71,15 @@ export function handlePfpChange(evt) {
   const newPfp = document.querySelector("#user-pfp-input").value;
 
   userPfp.src = newPfp;
-  API.setUserPfp(newPfp);
-  body.classList.remove("stop-scroll");
-  modal.classList.remove("popup__opened");
+  const button = document.querySelector("#button-form-change-pfp");
+  button.textContent = "Salvando...";
+  API.setUserPfp(newPfp)
+    .then((data) => {})
+    .finally(() => {
+      button.textContent = "Salvar";
+      body.classList.remove("stop-scroll");
+      modal.classList.remove("popup__opened");
+    });
 }
 
 function closeModalEsc(evt) {
