@@ -2,6 +2,7 @@ import "./index.css";
 
 import FormValidator from "../scripts/components/FormValidator.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
+import PopupWithConfirmation from "../scripts/components/PopupWithConfirmation.js";
 import Section from "../scripts/components/Section.js";
 
 import Api from "../scripts/components/API.js";
@@ -20,6 +21,10 @@ import {
   deleteCard,
 } from "../scripts/utils.js";
 
+/**
+ * Acessos aos elementos do DOM
+ */
+
 const body = document.querySelector(".body");
 const modal = document.querySelector(".modal");
 const editButton = document.querySelector("#edit-button");
@@ -34,6 +39,10 @@ const inputAbout = document.querySelector("#modal__input-about");
 
 const inputCardTitle = document.querySelector("#modal__input-title");
 const inputCardPhoto = document.querySelector("#modal__input-photo");
+
+/**
+ * Principais formulários da página
+ */
 
 const editProfileForm = new PopupWithForm(
   ".modal",
@@ -87,7 +96,7 @@ function handleDeleteCard(evt) {
   deleteConfirmForm.hide();
 }
 
-const deleteConfirmForm = new PopupWithForm(
+const deleteConfirmForm = new PopupWithConfirmation(
   ".modal",
   handleDeleteCard,
   "#modal__delete-confirm"
@@ -155,7 +164,9 @@ changePfpButton.addEventListener("click", (evt) => {
   addCloseModalEventListener();
 });
 
-// Validation
+/**
+ * Validação dos formulários
+ */
 const formList = document.querySelectorAll(".modal__form");
 formList.forEach((formElement) => {
   const newValidator = new FormValidator(formElement, {
@@ -164,6 +175,10 @@ formList.forEach((formElement) => {
   });
   newValidator.enableValidation();
 });
+
+/**
+ * Chamada para definir o usuário e depois disso faz a renderização dos cards
+ */
 
 API.getUserInfo().then((data) => {
   const { name, about, avatar, _id } = data;

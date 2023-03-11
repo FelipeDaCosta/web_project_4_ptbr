@@ -1,3 +1,6 @@
+/**
+ * Classe que faz a validação de todos os forms da página
+ */
 export default class FormValidator {
   constructor(form, classSelectors) {
     this._form = form;

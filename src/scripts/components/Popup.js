@@ -1,3 +1,6 @@
+/**
+ * Classe base dos popups
+ */
 export default class Popup {
   constructor(selector) {
     this._selector = selector;

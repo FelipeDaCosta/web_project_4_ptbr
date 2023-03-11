@@ -1,3 +1,6 @@
+/**
+ * Classe da section que mostra os cards
+ */
 export default class Section {
   constructor({ items, renderer }, selector) {
     this._items = items;

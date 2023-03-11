@@ -7,6 +7,9 @@ import {
 
 const cardTemplateId = "#element-template";
 
+/**
+ * Classe dos cards
+ */
 export default class Card {
   constructor(name, link, deleteFn, cardId, likesArr = [], ownerId) {
     this._name = name;
@@ -23,6 +26,10 @@ export default class Card {
     );
     this._likes = this._likesArr.length;
   }
+
+  /**
+   * Adiciona os eventos dos cards
+   */
 
   _addCardEvents() {
     if (!this._htmlElement)
@@ -62,6 +69,9 @@ export default class Card {
       );
   }
 
+  /**
+   * Cria o Html template
+   */
   _createTemplate() {
     const templateContent = document.querySelector(cardTemplateId).content;
     const newElement = templateContent.cloneNode(true);
@@ -86,6 +96,10 @@ export default class Card {
 
     this._addCardEvents();
   }
+
+  /**
+   * Retorna o html do card
+   */
 
   getCardElement() {
     if (!this._htmlElement) {

@@ -1,9 +1,17 @@
+/**
+ * Todas as chamadas para a API da practicum
+ */
+
 export default class Api {
   constructor(options) {
     this._baseHeader = options.headers;
     this._baseUrl = options.baseUrl;
   }
 
+  /**
+   * Método que faz a chamada para a API e retorna uma Promise
+   * com os dados
+   */
   _makeRequest(endpoint, method = "GET", body = "") {
     const requestParams = {
       method: method,

@@ -1,3 +1,6 @@
+/**
+ * Classe que guarda as informações do usuário logado
+ */
 export default class UserInfo {
   constructor(name, about, id = undefined) {
     this._name = name;

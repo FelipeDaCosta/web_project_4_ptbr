@@ -4,6 +4,10 @@ import PopupWithForm from "./components/PopupWithForm.js";
 import UserInfo from "./components/UserInfo.js";
 import Api from "./components/API.js";
 
+/**
+ * Arquivo com funções utilitárias
+ */
+
 const modal = document.querySelector(".modal");
 const body = document.querySelector(".body");
 
