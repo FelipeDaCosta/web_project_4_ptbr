@@ -1,10 +1,10 @@
-import "../style/index.css";
+import "./index.css";
 
-import FormValidator from "./components/FormValidator.js";
-import PopupWithForm from "./components/PopupWithForm.js";
-import Section from "./components/Section.js";
+import FormValidator from "../scripts/components/FormValidator.js";
+import PopupWithForm from "../scripts/components/PopupWithForm.js";
+import Section from "../scripts/components/Section.js";
 
-import Api from "./components/API.js";
+import Api from "../scripts/components/API.js";
 
 import {
   API,
@@ -18,7 +18,7 @@ import {
   handlePfpChange,
   getCurrentUserId,
   deleteCard,
-} from "./utils.js";
+} from "../scripts/utils.js";
 
 const body = document.querySelector(".body");
 const modal = document.querySelector(".modal");
