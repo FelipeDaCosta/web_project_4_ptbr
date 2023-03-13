@@ -17,7 +17,6 @@ export default class Card {
     this._htmlElement = null;
     this._cardId = cardId;
     this._ownerId = ownerId;
-    console.log(this._ownerId);
 
     this._deleteFn = deleteFn;
     this._likesArr = likesArr;

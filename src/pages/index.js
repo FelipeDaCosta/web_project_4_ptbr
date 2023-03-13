@@ -69,7 +69,7 @@ function handleAddCardSubmit(evt) {
         card.owner?._id
       );
     })
-    .catch((err) => console.log(err))
+    .catch((err) => alert("Ocorreu um erro: " + err))
     .finally(() => {
       button.textContent = "Criar";
       body.classList.remove("stop-scroll");
